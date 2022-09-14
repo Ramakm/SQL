@@ -391,6 +391,10 @@ select customer_name, cust_id from cust_dimen
 -- 1. Create a view to display the sales amounts, the number of orders, profits made and the shipping costs of all
 -- orders. Query it to return all orders which have a profit of greater than 1000.
 
+create view order_info as select ord_id, sales, order_quantity, profit, shipping_cost
+	from market_fact_full;
+    
+select ord_id, profit from order_info where profit > 1000;
 
 -- 2. Which year generated the highest profit?
 
